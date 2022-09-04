@@ -29,6 +29,10 @@ oddChecks(num3)
 # -------------------2) Create a method that takes in a string and removes all the vowels from the string. Use the test variables provided. 
 # HINT: Check out this resource: https://ruby-doc.org/core-2.6/String.html#method-i-delete
 # Pseudo code: Input will be a string. Remove all vowels from string and return string as output
+Pseudo code:
+input string 
+output: string with vowels removed
+
 def noVowels(str)
     p str.delete "Aaiueo"    
 end
