@@ -10,7 +10,7 @@ describe('arrayContaining', () => {
     expect(["purple", "blue", "green", "yellow", "pink"]).toEqual(expect.arrayContaining(["yellow", "blue", "pink", "green"]));
   });
   it('takes an array removes first index and returns index shuffled', () => {
-    expect(colors2).toEqual(expect.arrayContaining(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]));
+    expectYY(colors2).toEqual(expect.arrayContaining(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]));
   });
 });
 // const colors1 = ["purple", "blue", "green", "yellow", "pink"]
@@ -70,12 +70,33 @@ const dataArray1 = ["array", "object", "number", "string", "Boolean"]
 const dataArray2 = ["string", "null", "Boolean", "string", "undefined"]
 
 const idChecker = (arr1,arr2) => {
-  let newArr = arr1.concat(arr2)
+  let newArr = arr1.concat(arr2);
   let filteredArray = newArr.filter((value, index) => newArr.indexOf(value) === index)
   return filteredArray
 }
+// const idChecker = (arr1,arr2) => {                         //Francisco showed me how to use the spread in place of concat
+//   let newArr =[...arr1, ...arr2];
+//   let filteredArray = newArr.filter((value, index) => newArr.indexOf(value) === index);
+//   return filteredArray;
+// }
 
+// const onlyEven = (array) => {
+//   return array.filter((value) => value % 2 === 0)
+// }
+// const getOnlyOddIndex = (array) => {
+//   // return a higher-order function that takes in the value and the index
+//   return array.filter((value, index) => {
+//     // return only the values that have an odd index
+//     return index % 2 !== 0
+//   })
+// }
 
+  //wanted to see if there was a longhand way to solve using syllabus notes...the syllabus notes do not show the HOF shorthand syntax. Found that in your notes thank you.
 
-
-
+const idChecker = (arr1, arr2) => {                   //declare function that takes in two arrays
+  let newArr = [...arr1, ...arr2];                    //new variable to store the arrays combined using spread 
+  let filteredArray = newArr.filter((value,index) => {  //new variable to filter the prev variable
+    return newArr.indexOf(value) === index
+  })
+  return filteredArray                                //need to declare a return for the filteredArray (second variable) to show...
+}
